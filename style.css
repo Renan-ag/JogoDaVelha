@@ -1,0 +1,202 @@
+*{
+    padding: 0;
+    margin:0;
+}
+
+body{
+    background: black;
+    color: white;
+    overflow: hidden;
+}
+
+h1{
+    font-size: 1.8rem;
+}
+
+#container{
+    height: 80vh;
+    width: 80vw;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+#board {
+    height: 80%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(99%/3);
+    width:calc(97%/3);
+    cursor: pointer;
+    background: black;
+}
+
+.left{
+    border-right: 3px solid white;
+}
+
+.top{
+    border-bottom:3px solid white;
+}
+
+.right{
+    border-left: 3px solid white;
+}
+
+.bottom{
+    border-top: 3px solid white;
+}
+
+.o{
+    width: 60%;
+    height: 60%;
+    border: 8px solid white;
+    border-radius: 50%;
+    animation-timing-function: ease-in;
+    animation: anim_entra 0.5s;
+}
+
+.x{
+    width: 60%;
+    height: 65%;
+    background-color: white;
+    clip-path: polygon(16% 0%, 0% 15%, 33% 50%, 0% 85%,15% 100%, 50% 67%, 85% 100%, 100% 84%, 67% 50%, 100% 15%, 86.3% 0%, 50% 34%);
+    animation-timing-function: ease-in;
+    animation: anim_entra 0.5s;
+}
+
+#placar{
+    position: absolute;
+    width: 100vw;
+    height: 20vh;
+    top:80%;
+    left:0%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items:center;
+}
+
+#placar > div{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.jogadores{
+    color: rgba(200,200,200,0.4);   
+    transition-timing-function: ease-out;
+    transition: color 0.5s;
+}
+
+.ponto{
+    font-size: 2.2em;
+  
+}
+
+.vitoria{
+    animation-timing-function: ease-in;
+    animation: anim_vitoria 3s;
+}
+
+.desaparece{
+    animation-timing-function: ease-in;
+    animation: anim_reseta 1.8s;
+}
+
+@keyframes anim_entra{
+    0%{
+        transform: scale(0.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes anim_vitoria{
+    0%{
+        transform: scale(.7);
+    }
+    25%{
+       transform: scale(1);
+    }
+    50%{
+        transform: scale(.7);
+    }
+    75%{
+       transform: scale(1);
+    }
+    100%{
+        transform: scale(.7);
+    }
+}
+
+@keyframes anim_reseta{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+@media (min-width:630px){
+    #container{
+        top: 45%;
+    }
+    #board{
+        width:70%;
+        height: 90%;
+    }
+    #placar{
+        align-items:flex-start;
+        top:82%;
+    }
+    h1{
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #board{
+        width:80%;
+        height: 80%;
+    }    
+    .left,.right,.top,.bottom{
+        border-width: 5px;
+    }
+    #placar{
+        align-items:flex-start;
+        top:80%;
+    }
+
+}
+
+@media (min-width:1024px){
+    #board{
+        width:57%;
+        height: 84%;
+    }  
+}
+
+@media only screen and (min-width: 1200px) {
+    #board{
+        width:55%;
+        height: 80%;
+    }   
+}
+
+
